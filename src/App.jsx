@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import AddCart from './components/AddCart';
 import CartItems from './components/CartItems';
 import AboutUs from './pages/AboutUs';
+import ProductList from './components/ProductList';
 import productList from './data/productList';
 import './App.css';
 
@@ -132,34 +133,7 @@ function App() {
         )}
 
         {/* Shop Page */}
-        {currentPage === 'shop' && (
-          <div className="shop-page">
-            <h1>🌿 Our Plant Collection</h1>
-            <div className="products-grid">
-              {productList.map((product) => (
-                <div key={product.id} className="product-card">
-                  <img src={product.image} alt={product.title} />
-                  <div className="product-info">
-                    <h3>{product.title}</h3>
-                    <p className="category">{product.category}</p>
-                    <p className="description">{product.description}</p>
-                    <button
-                      className="details-btn"
-                      onClick={() => {
-                        setSelectedProduct(product);
-                        setCurrentPage('details');
-                      }}
-                    >
-                      View Details
-                    </button>
-                    <p className="price">${product.price}</p>
-                    <AddCart product={product} />
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
+        {currentPage === 'shop' && <ProductList />}
 
         {/* Product Details Page */}
         {currentPage === 'details' && selectedProduct && (
