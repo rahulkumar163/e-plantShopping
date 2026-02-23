@@ -76,7 +76,7 @@ function App() {
                   className="cta-button"
                   onClick={() => setCurrentPage('shop')}
                 >
-                  Start Shopping
+                  Get Started
                 </button>
               </div>
             </banner>
