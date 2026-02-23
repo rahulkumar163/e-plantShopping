@@ -10,6 +10,7 @@ import './App.css';
 function App() {
   const [currentPage, setCurrentPage] = useState('home');
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const [showProductList, setShowProductList] = useState(false);
   const totalQuantity = useSelector((state) => state.cart.totalQuantity);
 
   return (
@@ -18,7 +19,7 @@ function App() {
       <nav className="navbar">
         <div className="navbar-container">
           <div className="logo" onClick={() => setCurrentPage('home')}>
-            🌴 Paradise Nursery
+            � e-plantShopping
           </div>
           <ul className="nav-menu">
             <li>
@@ -68,13 +69,16 @@ function App() {
         {/* Home Page */}
         {currentPage === 'home' && (
           <div className="home-page">
-            <banner className="hero-banner">
+            <banner className="hero-banner background-image">
               <div className="hero-content">
-                <h1>Welcome to Paradise Nursery</h1>
+                <h1>Welcome to e-plantShopping</h1>
                 <p>Your Ultimate Plant Shopping Destination</p>
                 <button
                   className="cta-button"
-                  onClick={() => setCurrentPage('shop')}
+                  onClick={() => {
+                    setShowProductList(true);
+                    setCurrentPage('shop');
+                  }}
                 >
                   Get Started
                 </button>
@@ -188,7 +192,7 @@ function App() {
       <footer className="footer">
         <div className="footer-content">
           <div className="footer-section">
-            <h4>🌴 Paradise Nursery</h4>
+            <h4>� e-plantShopping</h4>
             <p>Your Ultimate Plant Shopping Destination</p>
           </div>
           <div className="footer-section">
@@ -202,7 +206,7 @@ function App() {
           </div>
           <div className="footer-section">
             <h4>Contact</h4>
-            <p>Email: info@paradisenursery.com</p>
+            <p>Email: info@e-plantshopping.com</p>
             <p>Phone: 1-800-PLANTS-1</p>
           </div>
           <div className="footer-section">
@@ -215,7 +219,7 @@ function App() {
           </div>
         </div>
         <div className="footer-bottom">
-          <p>&copy; 2024 Paradise Nursery. All rights reserved.</p>
+          <p>&copy; 2024 e-plantShopping. All rights reserved.</p>
         </div>
       </footer>
     </div>
